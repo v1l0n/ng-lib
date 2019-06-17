@@ -2,6 +2,4 @@
  * Public API Surface of template
  */
 
-export * from './lib/template.service';
-export * from './lib/template.component';
-export * from './lib/template.module';
+export * from './lib/login-screen/login-screen.module';
