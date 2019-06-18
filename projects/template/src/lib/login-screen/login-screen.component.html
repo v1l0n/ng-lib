@@ -1,3 +1,18 @@
-<p>
-  login-screen works!
-</p>
+<form [formGroup]="loginFormGroup" (ngSubmit)="sendCredentials()" [fxLayout]="column" fxLayoutGap="16px">
+
+  <mat-form-field>
+    <input matInput type="email" formControlName="email" placeholder="email" i18n-placeholder>
+    <mat-error>
+      <span *ngIf="loginFormGroup.get('email').hasError('required')" i18n>email required</span>
+      <span *ngIf="loginFormGroup.get('email').hasError('email')" i18n>incorrect email</span>
+      <span *ngIf="loginFormGroup.hasError('loginFailed')" i18n>login failed</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" formControlName="password" placeholder="password" i18n-placeholder>
+    <mat-error *ngIf="loginFormGroup.get('password').hasError('required')" i18n>password required</mat-error>
+  </mat-form-field>
+
+  <button mat-button [disabled]="loginFormGroup.invalid" [fxFlex]="grow" i18n>connection</button>
+</form>
