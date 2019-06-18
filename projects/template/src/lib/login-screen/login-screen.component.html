@@ -1,4 +1,4 @@
-<form [formGroup]="loginFormGroup" (ngSubmit)="sendCredentials()" [fxLayout]="column" fxLayoutGap="16px">
+<form [formGroup]="loginFormGroup" (ngSubmit)="sendCredentials()" [fxLayout]="'column'" fxLayoutGap="16px">
 
   <mat-form-field>
     <input matInput type="email" formControlName="email" placeholder="email" i18n-placeholder>
@@ -14,5 +14,5 @@
     <mat-error *ngIf="loginFormGroup.get('password').hasError('required')" i18n>password required</mat-error>
   </mat-form-field>
 
-  <button mat-button [disabled]="loginFormGroup.invalid" [fxFlex]="grow" i18n>connection</button>
+  <button mat-button [disabled]="loginFormGroup.invalid" [fxFlex]="'grow'" i18n>connection</button>
 </form>

@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/template",
       "sourceRoot": "projects/template/src",
-      "prefix": "lib",
+      "prefix": "vln",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

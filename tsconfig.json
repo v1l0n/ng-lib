@@ -20,10 +20,10 @@
       "dom"
     ],
     "paths": {
-      "template": [
+      "@vilon/ng-template": [
         "dist/template"
       ],
-      "template/*": [
+      "@vilon/ng-template/*": [
         "dist/template/*"
       ]
     }

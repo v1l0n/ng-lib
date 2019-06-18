@@ -1,24 +1,18 @@
-# Template
+[![npm](https://img.shields.io/npm/v/@vilon/ng-template.svg)](https://www.npmjs.com/@vilon/ng-template)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+# Ng-Template
 
-## Code scaffolding
+This library contains UI Elements build with and for [Angular](https://github.com/angular/angular).
 
-Run `ng generate component component-name --project template` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project template`.
-> Note: Don't forget to add `--project template` or else it will be added to the default project in your `angular.json` file. 
+#### Quick links
 
-## Build
+[Angular](https://angular.io/) | [Angular Material](https://material.angular.io/)
 
-Run `ng build template` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Getting started
 
-## Publishing
+[Set up the Local Environment and Workspace.](https://angular.io/guide/setup-local)
 
-After building your library with `ng build template`, go to the dist folder `cd dist/template` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test template` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Add the library to your application.
+```
+npm i @vilon/ng-template
+```

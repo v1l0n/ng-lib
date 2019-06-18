@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "publish-template": "cd ./projects/template && ng build template && cd ../../dist/template && npm publish",
+    "publish-patch-template": "cd ./projects/template && npm version patch && ng build template && cd ../../dist/template && npm publish"
   },
   "private": true,
   "dependencies": {
