@@ -1,4 +1,5 @@
 [![npm](https://img.shields.io/npm/v/@vilon/ng-template.svg)](https://www.npmjs.com/@vilon/ng-template)
+![GitHub](https://img.shields.io/github/license/v1l0n/ng-lib.svg)
 
 # Ng-Template
 
