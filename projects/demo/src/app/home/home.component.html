@@ -1,0 +1,14 @@
+<mat-grid-list cols="4">
+  <mat-grid-tile [colspan]="(isHandset$ | async) ? 4 : 1">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title i18n>Login Screen</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <a routerLink="/login" aria-label="Navigate To Login Screen" mat-icon-button>
+            <mat-icon aria-label="Login Screen">input</mat-icon>
+        </a>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

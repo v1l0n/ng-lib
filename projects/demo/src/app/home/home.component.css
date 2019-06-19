@@ -1,0 +1,19 @@
+.dashboard-card {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.dashboard-card-content .mat-icon,
+.dashboard-card-content .mat-icon-button {
+  height:128px !important;
+  width:128px !important;
+  line-height: 128px !important;
+  font-size: 128px !important;
+}
