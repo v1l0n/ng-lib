@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material';
 import { LoginScreenModule } from '@vilon/ng-template';
 
 import { LoginComponent } from './login.component';
@@ -13,6 +14,7 @@ describe('LoginComponent', () => {
       declarations: [ LoginComponent ],
       imports: [
         NoopAnimationsModule,
+        MatCardModule,
         LoginScreenModule
       ]
     })
