@@ -8,10 +8,10 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^8.0.1",
-    "@angular/core": "^8.0.1",
+    "@angular/common": "^8.0.2",
+    "@angular/core": "^8.0.2",
     "@angular/flex-layout": "^8.0.0-beta.26",
-    "@angular/forms": "~8.0.1",
+    "@angular/forms": "~8.0.2",
     "@angular/material": "^8.0.1",
     "rxjs": "~6.4.0"
   }
