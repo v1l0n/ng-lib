@@ -7,4 +7,4 @@ This project contains librairies build with and for [Angular](https://github.com
 
 #### Quick links
 
-[Demo](https://xorimxkb.github.stackblitz.io/) | [Angular](https://angular.io/) | [Angular Material](https://material.angular.io/)
+[Demo](https://jvminvgq.github.stackblitz.io/) | [Angular](https://angular.io/) | [Angular Material](https://material.angular.io/)
