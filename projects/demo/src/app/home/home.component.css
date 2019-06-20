@@ -1,3 +1,7 @@
+.dashboard-grid-tile {
+  height: 128px;
+}
+
 .dashboard-card {
   position: absolute;
   top: 16px;
