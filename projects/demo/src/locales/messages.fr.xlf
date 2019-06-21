@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="0b15bf6fa1e5bdabc9fde97a14bee63a5d5e62f6" datatype="html">
+        <source>email</source>
+        <target>email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../dist/template/lib/login-screen/login-screen.component.d.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c1a80d314e0745b90b3cfc2c1054d587313065f0" datatype="html">
+        <source>email required</source>
+        <target>email requise</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../dist/template/lib/login-screen/login-screen.component.d.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f2a646a7030e42e57cad63898f3fd3518e08f33b" datatype="html">
+        <source>incorrect email</source>
+        <target>email incorrecte</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../dist/template/lib/login-screen/login-screen.component.d.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="315236f35edf9b58cc652a398d985d7c879d3cd6" datatype="html">
+        <source>login failed</source>
+        <target>échec de la connexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../dist/template/lib/login-screen/login-screen.component.d.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html">
+        <source>password</source>
+        <target>mot de passe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../dist/template/lib/login-screen/login-screen.component.d.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a0ff1281040bf34fd81676328496e6d5e6512149" datatype="html">
+        <source>password required</source>
+        <target>mot de passe requis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../dist/template/lib/login-screen/login-screen.component.d.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ed47231bfa0b760d757c6283bbbb4cdd692249cf" datatype="html">
+        <source>connection</source>
+        <target>connexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../dist/template/lib/login-screen/login-screen.component.d.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="41aac9cecddc9f345c263d3742192e68e227e413" datatype="html">
+        <source>Menu</source>
+        <target>menu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="92eee6be6de0b11c924e3ab27db30257159c0a7c" datatype="html">
+        <source>Home</source>
+        <target>home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="61132aac9d4db1e3b9c6e2a8b7f09e9b8b8051a1" datatype="html">
+        <source>Login Screen</source>
+        <target>écran de connexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ba8d22f17592099f87e684283d3587b5afd216b3" datatype="html">
+        <source>Toggle Sidenav</source>
+        <target>Afficher la barre de navigation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fa61784c8b0f6ba77fb20f37faa4a6670fac75d1" datatype="html">
+        <source>Demo</source>
+        <target>démo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

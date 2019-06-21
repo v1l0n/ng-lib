@@ -88,6 +88,41 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "production-fr": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/demo/src/environments/environment.ts",
+                  "with": "projects/demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "outputPath": "dist/demo-fr/",
+              "i18nFile": "projects/demo/src/locales/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "fr"
+            },
+            "fr": {
+              "aot": true,
+              "outputPath": "dist/demo-fr/",
+              "i18nFile": "projects/demo/src/locales/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "fr"
             }
           }
         },
@@ -99,6 +134,9 @@
           "configurations": {
             "production": {
               "browserTarget": "demo:build:production"
+            },
+            "fr": {
+              "browserTarget": "demo:build:fr"
             }
           }
         },
