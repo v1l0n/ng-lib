@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,13 @@ import { map } from 'rxjs/operators';
 })
 export class AppComponent {
 
+  constructor(private breakpointObserver: BreakpointObserver,
+              private appService: AppService) { }
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  buffering$: Observable<boolean> = this.appService.buffering$;
 }

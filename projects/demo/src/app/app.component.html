@@ -22,6 +22,7 @@
       </button>
       <span routerLink="/">Angular Libraries - <span i18n>Demo</span></span>
     </mat-toolbar>
+    <mat-progress-bar *ngIf="buffering$ | async" mode="buffer"></mat-progress-bar>
     <div id="content">
       <router-outlet></router-outlet>
     </div>
