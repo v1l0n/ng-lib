@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  failed$: Subject<boolean>;
+  private _FAILED: BehaviorSubject<boolean>;
+
+  get failed$(): Observable<boolean> {
+    return this._FAILED.asObservable();
+  }
 
   constructor(private router: Router,
               private appService: AppService) {
-    this.failed$ = new Subject();
+    this._FAILED = new BehaviorSubject(false);
   }
 
   ngOnInit() {
@@ -25,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.appService.hideProgressBar();
 
       if (credentials.email === 'test@test.com') {
-        this.failed$.next(true);
+        this._FAILED.next(true);
       } else {
         this.router.navigate(['']);
       }

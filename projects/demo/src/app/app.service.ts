@@ -7,16 +7,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AppService {
   private _BUFFERING: BehaviorSubject<boolean>;
 
-  constructor() {
-    this._BUFFERING = new BehaviorSubject(false);
-  }
-
   get buffering$(): Observable<boolean> {
     return this._BUFFERING.asObservable();
   }
 
   get buffering(): boolean {
     return this._BUFFERING.getValue();
+  }
+
+  constructor() {
+    this._BUFFERING = new BehaviorSubject(false);
   }
 
   showProgressBar = (show = true) => {
