@@ -24,17 +24,17 @@ export class LoginScreenComponent implements OnInit, OnChanges {
       distinctUntilChanged()
     )
       .subscribe(() => {
-        if (this.loginFormGroup.errors && this.loginFormGroup.errors.loginFailed) {
-          this.loginFormGroup.setErrors({ loginFailed: false });
-          this.loginFormGroup.updateValueAndValidity();
-        }
-      });
+          if (this.loginFormGroup.get('email').errors && this.loginFormGroup.get('email').errors.loginFailed) {
+            this.loginFormGroup.get('email').setErrors({ loginFailed: false });
+            this.loginFormGroup.updateValueAndValidity();
+          }
+        });
   }
 
   ngOnChanges(changes: SimpleChanges) {
 
     if (changes.failed && changes.failed.currentValue) {
-      this.loginFormGroup.setErrors({ loginFailed: true });
+      this.loginFormGroup.get('email').setErrors({ loginFailed: true });
     }
   }
 

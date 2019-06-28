@@ -5,7 +5,7 @@
     <mat-error>
       <span *ngIf="loginFormGroup.get('email').hasError('required')" i18n>email required</span>
       <span *ngIf="loginFormGroup.get('email').hasError('email')" i18n>incorrect email</span>
-      <span *ngIf="loginFormGroup.hasError('loginFailed')" i18n>login failed</span>
+      <span *ngIf="loginFormGroup.get('email').hasError('loginFailed')" i18n>login failed</span>
     </mat-error>
   </mat-form-field>
 

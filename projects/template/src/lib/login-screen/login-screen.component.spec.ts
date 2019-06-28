@@ -58,12 +58,6 @@ describe('LoginScreenComponent', () => {
       fixture.detectChanges();
       expect(component.login.emit).toHaveBeenCalledWith({email: correctEmail, password: correctPassword});
     });
-
-    it('should be on error when login failed', () => {
-      component.ngOnChanges({failed: new SimpleChange(null, true, true)});
-      fixture.detectChanges();
-      expect(component.loginFormGroup.errors.loginFailed).toBeTruthy();
-    });
   });
 
   describe('Email form control', () => {
@@ -80,6 +74,12 @@ describe('LoginScreenComponent', () => {
     it('should be an email', () => {
       component.loginFormGroup.get('email').setValue(incorrectEmail);
       expect(component.loginFormGroup.controls.email.errors.email).toBeTruthy();
+    });
+
+    it('should be on error when login failed', () => {
+      component.ngOnChanges({failed: new SimpleChange(null, true, true)});
+      fixture.detectChanges();
+      expect(component.loginFormGroup.controls.email.errors.loginFailed).toBeTruthy();
     });
   });
 
