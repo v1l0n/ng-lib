@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-  buffering$: Subject<boolean>;
+  private _BUFFERING: BehaviorSubject<boolean>;
 
   constructor() {
-    this.buffering$ = new Subject();
+    this._BUFFERING = new BehaviorSubject(false);
+  }
+
+  get buffering$(): Observable<boolean> {
+    return this._BUFFERING.asObservable();
+  }
+
+  get buffering(): boolean {
+    return this._BUFFERING.getValue();
   }
 
   showProgressBar = (show = true) => {
-    this.buffering$.next(show);
+    this._BUFFERING.next(show);
   }
 
   hideProgressBar = (show = true) => {
-    this.buffering$.next(!show);
+    this._BUFFERING.next(!show);
   }
 }

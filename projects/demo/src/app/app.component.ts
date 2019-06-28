@@ -10,14 +10,16 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isHandset$: Observable<boolean>;
+  buffering$: Observable<boolean>;
 
   constructor(private breakpointObserver: BreakpointObserver,
-              private appService: AppService) { }
+              private appService: AppService) {
+    this.isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset)
+      .pipe(
+        map(result => result.matches)
+      );
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
-
-  buffering$: Observable<boolean> = this.appService.buffering$;
+    this.buffering$ = this.appService.buffering$;
+  }
 }
