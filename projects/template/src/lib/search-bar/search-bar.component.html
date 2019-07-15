@@ -1,0 +1,6 @@
+<form [formGroup]="searchFormGroup">
+
+    <mat-form-field>
+      <input matInput #query formControlName="query" (keyup.enter)="onEnter(query.value)" placeholder="query" i18n-placeholder>
+    </mat-form-field>  
+  </form>

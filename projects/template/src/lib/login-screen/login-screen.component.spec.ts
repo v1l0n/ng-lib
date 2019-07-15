@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SimpleChange } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { MatButtonModule, MatInputModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { LoginScreenComponent } from './login-screen.component';
-import { SimpleChange } from '@angular/core';
 
 describe('LoginScreenComponent', () => {
   let component: LoginScreenComponent;
