@@ -4,18 +4,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule,
   MatMenuModule, MatProgressBarModule } from '@angular/material';
-import { LoginScreenModule } from '@vilon/ng-template';
+import { LoginScreenModule, SearchBarModule } from '@vilon/ng-template';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { LoginComponent } from './login/login.component';
     MatMenuModule,
     MatProgressBarModule,
     LoginScreenModule,
+    SearchBarModule,
     AppRoutingModule
   ],
   providers: [],

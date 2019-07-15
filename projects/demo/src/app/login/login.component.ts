@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login = (credentials) => {
+  login = (credentials: {email: string, password: string}) => {
     this.appService.showProgressBar();
 
     setTimeout(() => {
