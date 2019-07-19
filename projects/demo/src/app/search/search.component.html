@@ -1,5 +1,5 @@
 <mat-card class="search-card">
   <mat-card-content>
-    <vln-search (query)="search($event)"></vln-search>
+    <vln-search (query)="handleQuery($event)" [suggestions$]="suggestions$"></vln-search>
   </mat-card-content>
 </mat-card>

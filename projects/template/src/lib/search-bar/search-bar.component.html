@@ -1,6 +1,12 @@
 <form [formGroup]="searchFormGroup">
 
-    <mat-form-field>
-      <input matInput #query formControlName="query" (keyup.enter)="onEnter(query.value)" placeholder="query" i18n-placeholder>
-    </mat-form-field>  
-  </form>
+  <mat-form-field id="search-query">
+    <input matInput #query formControlName="query" [matAutocomplete]="auto" placeholder="query" i18n-placeholder>
+    <button mat-button matSuffix mat-icon-button (click)="emitQuery(query.value)" [disabled]="query.value == ''" aria-label="search" i18n-aria-label>
+      <mat-icon aria-label="search" i18n-aria-label>search</mat-icon>
+    </button>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let suggestion of autocompleteOptions$ | async" [value]="suggestion">{{suggestion}}</mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
