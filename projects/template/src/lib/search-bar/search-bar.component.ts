@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { distinctUntilChanged, delay, startWith } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { distinctUntilChanged, delay } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'vln-search',
@@ -9,11 +9,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  @Input() suggestions$: Observable<string[]>;
+
+  @Input() set suggestions(suggestions: string[]) {
+    this.suggestions$.next(suggestions);
+  }
+
   @Output() query = new EventEmitter<{type: string, text: string}>();
 
   searchFormGroup: FormGroup;
-  autocompleteOptions$: Observable<string[]>;
+  suggestions$: Subject<string[]> = new Subject();
 
   constructor(private formBuilder: FormBuilder) {
     this.searchFormGroup = formBuilder.group({
@@ -28,10 +32,6 @@ export class SearchBarComponent implements OnInit {
     ).subscribe(query => {
       this.query.emit({type: 'suggest', text: query});
     });
-
-    this.autocompleteOptions$ = this.suggestions$.pipe(
-      startWith([])
-    );
   }
 
   emitQuery = (query) => {

@@ -55,14 +55,10 @@ describe('SearchBarComponent', () => {
       expect(component.query.emit).toHaveBeenCalledWith(suggestQuery);
     }));
 
-    it('should show autocomplete when suggestions are available', (done: DoneFn) => {
+    it('should show autocomplete when suggestions are available', async(() => {
+      component.suggestions$.subscribe(suggestions => expect(suggestions).toEqual(correctSuggestions));
       component.suggestions = correctSuggestions;
-      fixture.detectChanges();
-      fixture.whenStable().then(() => {
-        expect(component.suggestions).toEqual(correctSuggestions);
-      });
-      done();
-    });
+    }));
   });
 
   describe('Query form control', () => {
