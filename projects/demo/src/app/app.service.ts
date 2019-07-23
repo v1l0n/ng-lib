@@ -6,7 +6,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AppService {
   private _BUFFERING: BehaviorSubject<boolean>;
-  navigationItems: { title: string, link: string, icon: string}[];
+
+  get navigationItems(): { title: string, link: string, icon: string}[] {
+    return [
+      { title: 'home', link: '/', icon: 'home'},
+      { title: 'login screen', link: '/login', icon: 'input'},
+      { title: 'search bar', link: '/search', icon: 'search'}
+    ];
+  }
 
   get buffering$(): Observable<boolean> {
     return this._BUFFERING.asObservable();
@@ -18,12 +25,6 @@ export class AppService {
 
   constructor() {
     this._BUFFERING = new BehaviorSubject(false);
-
-    this.navigationItems = [
-      { title: 'home', link: '/', icon: 'home'},
-      { title: 'login screen', link: '/login', icon: 'input'},
-      { title: 'search bar', link: '/search', icon: 'search'}
-    ];
   }
 
   showProgressBar = (show = true) => {
