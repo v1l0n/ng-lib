@@ -1,6 +1,7 @@
 {
   "name": "@vilon/ng-template",
   "version": "0.5.0",
+  "description": "UI Elements for Angular applications",
   "homepage": "https://github.com/v1l0n/ng-lib/tree/master/projects/template",
   "repository": {
     "type": "git",
