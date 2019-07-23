@@ -1,23 +1,26 @@
-.dashboard-grid-tile {
-  height: 128px;
+mat-card {
+  width: 80%;
+  max-width: 400px;
 }
 
-.dashboard-card {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-}
-
-.dashboard-card-content {
+mat-card-content,
+mat-card-title {
+  width: 100%;
   text-align: center;
 }
 
-.dashboard-card-content .mat-icon,
-.dashboard-card-content .mat-icon-button {
-  height:128px !important;
-  width:128px !important;
-  line-height: 128px !important;
-  font-size: 128px !important;
+mat-card-header {
+  display: initial;
+}
+
+mat-card-content a {
+  width: 96px;
+  height: 96px;
+}
+
+mat-card-content a mat-icon {
+  height:96px !important;
+  width:96px !important;
+  line-height: 96px !important;
+  font-size: 96px !important;
 }

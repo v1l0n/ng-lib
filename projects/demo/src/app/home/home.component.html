@@ -1,27 +1,16 @@
-<mat-grid-list cols="4">
+<mat-grid-list cols="4" rowHeight="192px">
 
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 4 : 1" class="dashboard-grid-tile">
-    <mat-card class="dashboard-card">
+  <mat-grid-tile *ngFor="let tile of tiles" [colspan]="(isHandset$ | async) ? 4 : 1">
+    <mat-card>
       <mat-card-header>
-        <mat-card-title i18n>Login Screen</mat-card-title>
+        <mat-card-title i18n>{{tile.title}}</mat-card-title>
       </mat-card-header>
-      <mat-card-content class="dashboard-card-content">
-        <a routerLink="/login" aria-label="Navigate To Login Screen" mat-icon-button>
-            <mat-icon aria-label="Login Screen">input</mat-icon>
-        </a>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 4 : 1" class="dashboard-grid-tile">
-    <mat-card class="dashboard-card">
-      <mat-card-header>
-        <mat-card-title i18n>Search Bar</mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="dashboard-card-content">
-        <a routerLink="/search" aria-label="Navigate To Search Bar Component" mat-icon-button>
-            <mat-icon aria-label="Search Bar">search</mat-icon>
-        </a>
+      <mat-card-content>
+        <div>
+          <a [routerLink]="tile.link" [attr.aria-label]="'navigate to ' + tile.title" i18n-aria-label mat-icon-button>
+            <mat-icon>{{tile.icon}}</mat-icon>
+          </a>
+        </div>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
