@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { AppService } from '../app.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { AppService } from '../app.service';
 })
 export class SearchComponent implements OnInit {
   suggestions$: Subject<string[]>;
+  search: string;
+  timerId: any;
 
   constructor(private appService: AppService) {
     this.suggestions$ = new Subject();
@@ -17,18 +19,25 @@ export class SearchComponent implements OnInit {
   }
 
   handleQuery = (query: {type: string, text: string}) => {
+    clearTimeout(this.timerId);
 
     switch (query.type) {
 
       case 'search': {
-        console.log(`search: ${query.text}`);
+        this.search = query.text;
+        this.suggestions$.next([]);
         break;
       }
 
       case 'suggest': {
-        setTimeout(() => {
-          this.suggestions$.next(['test demo', 'test demo 2', query.text]);
-        }, 1000);
+
+        this.timerId = setTimeout(() => {
+          if (query.text.length <= 42) {
+            this.suggestions$.next([`${query.text} demo`, `${query.text} demo 2`, `${query.text} demo 3`]);
+          } else {
+            this.suggestions$.next([]);
+          }
+        }, 500);
         break;
       }
     }

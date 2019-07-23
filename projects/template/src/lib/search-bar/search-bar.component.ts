@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { distinctUntilChanged, delay } from 'rxjs/operators';
+import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -27,7 +27,8 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() {
     this.searchFormGroup.get('query').valueChanges.pipe(
-      delay(200),
+      debounceTime(200),
+      map(query => query.trim()),
       distinctUntilChanged()
     ).subscribe(query => {
       this.query.emit({type: 'suggest', text: query});
