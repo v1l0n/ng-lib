@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "publish-patch-template": "cd ./projects/template && npm version patch && ng build template && cd ../../dist/template && npm publish",
+    "publish-minor-template": "cd ./projects/template && npm version minor && ng build template && cd ../../dist/template && npm publish",
     "translate-template": "ng xi18n --output-path src/locales"
   },
   "private": true,
