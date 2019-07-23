@@ -19,17 +19,18 @@ export class SearchComponent implements OnInit {
   }
 
   handleQuery = (query: {type: string, text: string}) => {
-    clearTimeout(this.timerId);
 
     switch (query.type) {
 
       case 'search': {
-        this.search = query.text;
+        clearTimeout(this.timerId);
         this.suggestions$.next([]);
+        this.search = query.text;
         break;
       }
 
       case 'suggest': {
+        clearTimeout(this.timerId);
 
         this.timerId = setTimeout(() => {
           if (query.text.length <= 42) {
