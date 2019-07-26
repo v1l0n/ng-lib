@@ -12,4 +12,4 @@ jobs:
           key: template-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
-      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - run: npm run test-template -- --no-watch --no-progress --browsers=ChromeHeadlessCI
