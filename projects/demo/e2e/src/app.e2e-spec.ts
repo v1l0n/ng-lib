@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display toolbar title', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to demo!');
+    expect(page.getToolbarTitleText()).toEqual('Angular Libraries - Demo');
   });
 
   afterEach(async () => {

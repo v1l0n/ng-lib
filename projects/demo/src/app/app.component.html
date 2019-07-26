@@ -19,7 +19,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Toggle Sidenav Icon">menu</mat-icon>
       </button>
-      <span routerLink="/">Angular Libraries - <span i18n>Demo</span></span>
+      <span class="title" routerLink="/">Angular Libraries - <span i18n>Demo</span></span>
     </mat-toolbar>
     <mat-progress-bar *ngIf="buffering$ | async" mode="buffer"></mat-progress-bar>
     <div id="content">
