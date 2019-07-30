@@ -62,7 +62,10 @@ workflows:
   version: 2
   test-publish-template:
     jobs:
-      - test-template
+      - test-template:
+          filters:
+            tags:
+              only: /.*/
       - publish-template:
           requires:
             - test-template
@@ -70,7 +73,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^v(\d)+(\.(\d)+)+$/
+              only: /^template-v(\d)+(\.(\d)+)+$/
   test-demo:
     jobs:
       - test-demo

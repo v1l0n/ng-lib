@@ -16,8 +16,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-template": "ng build template",
-    "publish-patch-template": "cd ./projects/template && npm version patch && ng build template && cd ../../dist/template && npm publish",
-    "publish-minor-template": "cd ./projects/template && npm version minor && ng build template && cd ../../dist/template && npm publish",
+    "//": "Add .git directory to subfolder. https://github.com/npm/npm/issues/9111#issuecomment-126279242",
+    "patch-template": "cd ./projects/template && npm version patch -m \"template v%s\" --tag-version-prefix \"template-v\" && git push && git push --tags",
+    "minor-template": "cd ./projects/template && npm version minor -m \"template v%s\" --tag-version-prefix \"template-v\" && git push && git push --tags",
     "translate-template": "ng xi18n --output-path src/locales",
     "test-template": "ng run template:test",
     "e2e-demo": "ng e2e demo" 
