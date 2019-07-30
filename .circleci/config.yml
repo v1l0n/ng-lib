@@ -71,7 +71,7 @@ workflows:
             - test-template
           filters:
             branches:
-              ignore: /.*/
+              only: master
             tags:
               only: /^template-v(\d)+(\.(\d)+)+$/
   test-demo:
