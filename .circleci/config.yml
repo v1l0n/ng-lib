@@ -33,7 +33,7 @@ jobs:
             - "node_modules"
       - run: 
           name: Test ng-template
-          command: npm run test-template -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          command: npm run test-template -- --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI
   publish-template:
     docker:
       - image: circleci/node:latest
