@@ -37,6 +37,13 @@ describe('LoginScreenComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should filter inputs', () => {
+    const originalComponent = component;
+    component.ngOnChanges({wrongInput: new SimpleChange(null, true, true)});
+    fixture.detectChanges();
+    expect(component).toEqual(originalComponent);
+  });
+
   describe('Login form', () => {
 
     it('should create', () => {
@@ -92,6 +99,12 @@ describe('LoginScreenComponent', () => {
     it('should be required', () => {
       const validator = component.loginFormGroup.controls.password.validator({} as AbstractControl);
       expect(validator.required).toBeTruthy();
+    });
+
+    it('should reset \'loginFailed\' error on new input', () => {
+      component.loginFormGroup.get('email').setErrors({loginFailed: true});
+      component.loginFormGroup.get('password').setValue(correctPassword);
+      expect(component.loginFormGroup.controls.email.errors.loginFailed).toBeFalsy();
     });
   });
 });
