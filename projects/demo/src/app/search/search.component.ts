@@ -7,13 +7,11 @@ import { AppService } from '../app.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  suggestions$: Subject<string[]>;
-  search: string;
+  suggestions$: Subject<string[]> = new Subject();
+  results$: Subject<{title: string, link: string, description?: string}[]> = new Subject();
   timerId: any;
 
-  constructor(private appService: AppService) {
-    this.suggestions$ = new Subject();
-  }
+  constructor(private appService: AppService) { }
 
   ngOnInit() {
   }
@@ -25,7 +23,13 @@ export class SearchComponent implements OnInit {
       case 'search': {
         clearTimeout(this.timerId);
         this.suggestions$.next([]);
-        this.search = query.text;
+        this.results$.next([
+          {title: `${query.text} result`, link: `https://www.google.be/search?q=${encodeURIComponent(query.text)}`},
+          {title: `${query.text} result 2`, link: `https://www.google.be/search?q=${encodeURIComponent(query.text)}`},
+          {title: `${query.text} result 3`, link: `https://www.google.be/search?q=${encodeURIComponent(query.text)}`},
+          {title: `${query.text} result 4`, link: `https://www.google.be/search?q=${encodeURIComponent(query.text)}`},
+          {title: `${query.text} result 5`, link: `https://www.google.be/search?q=${encodeURIComponent(query.text)}`},
+        ]);
         break;
       }
 

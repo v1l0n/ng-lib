@@ -1,6 +1,11 @@
 <mat-card class="search-card">
   <mat-card-content>
     <vln-search (query)="handleQuery($event)" [suggestions]="suggestions$ | async"></vln-search>
-    <p *ngIf="search"><ng-container i18n>searched for</ng-container>: {{search}}</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <vln-search-result [results]="results$ | async"></vln-search-result>
   </mat-card-content>
 </mat-card>
