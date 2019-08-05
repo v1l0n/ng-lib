@@ -15,6 +15,9 @@ jobs:
           paths:
             - "node_modules"
       - run:
+          name: build ng-template
+          command: npm run build-template
+      - run:
           name: E2E tests for demo app
           command: npm run e2e-demo -- --protractor-config=projects/demo/e2e/protractor-ci.conf.js
   test-template:
