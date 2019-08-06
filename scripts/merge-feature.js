@@ -10,38 +10,32 @@ exec('git status --porcelain', (err, stdout, stderr) => {
     }
 
     exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
-        const actualBranch = stdout;
+        const featureBranch = process.argv[2] ? process.argv[2] : stdout;
+        const activeBranch = stdout;
 
-        if (process.argv[2]) {
-
-            exec(`git checkout ${process.argv[2]}`, (err, stdout, stderr) => {
-                mergePush(process.argv[2], actualBranch);
-            });
-        } else {
-            mergePush(actualBranch);
+        if (!featureBranch.startsWith('feature/')) {
+            console.log(`script ${chalk.red('ERR!')} '${featureBranch}' is not a feature branch.`);
+            return;
         }
-    });
-});
 
-function mergePush(hotfixBranch, actualBranch) {
+        console.log(`script ${chalk.black.bgWhite('INFO')} Merging '${featureBranch}' into develop...`);
 
-    exec('git checkout develop', (err, stdout, stderr) => {
-        console.log('script ' + chalk.black.bgWhite('INFO') + ' Merging changes into develop...');
-
-        exec(`git merge --no-ff ${hotfixBranch}`, (err, stdout, stderr) => {
-
-            exec(`git checkout ${actualBranch ? actualBranch : hotfixBranch}`, (err, stdout, stderr) => {
-
-                prompt([{ type : 'input', name : 'push', message: 'Push branches to remote origin? [y/n]' }]).then(answer => {
+        exec(`git checkout develop`, (err, stdout, stderr) => {
+            
+            exec(`git merge --no-ff ${featureBranch}`, (err, stdout, stderr) => {
+            
+                prompt([{ type : 'input', name : 'push', message: 'Push develop to remote origin? [y/n]' }]).then(answer => {
 
                     if (answer.push.match(/^y$/i)) {
-                        console.log('script ' + chalk.black.bgWhite('INFO') + ' Pushing branches to remote origin...');
-                        exec('git push --all origin');
+                        exec(`git push`, (err, stdout, stderr) => {
+
+                            exec(`git checkout ${activeBranch}`);
+                        });
                     } else {
-                        console.log('script ' + chalk.black.bgYellow('WARN') + ' Push to origin canceled.')
+                        exec(`git checkout ${activeBranch}`);
                     }
                 });                            
-            });
+            });                            
         });
     });
-}
+});
