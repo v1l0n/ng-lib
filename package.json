@@ -17,6 +17,8 @@
     "e2e": "ng e2e",
     "hotfix-repo": "node ./scripts/hotfix-repo.js",
     "merge-feature": "node ./scripts/merge-feature.js",
+    "release-dev": "node ./scripts/release-dev.js",
+    "merge-release": "node ./scripts/merge-release.js",
     "patch-repo": "npm version patch -m \"repo v%s\" && git push && git push --tags",
     "minor-repo": "npm version minor -m \"repo v%s\" && git push && git push --tags",
     "major-repo": "npm version major -m \"repo v%s\" && git push && git push --tags",
