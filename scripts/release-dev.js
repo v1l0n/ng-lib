@@ -10,8 +10,6 @@ exec('git status --porcelain', (err, stdout, stderr) => {
         return;
     }
 
-    let newVersionNumber;
-
     if (process.argv[2]) {
 
         if (process.argv[2] == '-M') {
@@ -20,12 +18,15 @@ exec('git status --porcelain', (err, stdout, stderr) => {
         }
 
         if (process.argv[2] == '-m') {
-            createMergePush(updateVersion('minor'));
+            createMergePush(updateVersion('minor'), 'minor');
             return;
         }
-    }
-    
-    if (!newVersionNumber) {
+
+        if (process.argv[2] == '-p') {
+            createMergePush(updateVersion('patch'));
+            return;
+        }
+    } else {
 
         prompt([{ type : 'input', name : 'version', message: 'Create (m)inor or (M)ajor version? [m/M]' }]).then(answer => {
 
@@ -35,7 +36,12 @@ exec('git status --porcelain', (err, stdout, stderr) => {
             }
     
             if (answer.version == 'm') {
-                createMergePush(updateVersion('minor'));
+                createMergePush(updateVersion('minor'), 'minor');
+                return;
+            }
+    
+            if (answer.version == 'p') {
+                createMergePush(updateVersion('patch'));
                 return;
             }
         });    
@@ -48,23 +54,26 @@ function updateVersion(versionUpdateType) {
     return packageJson.version.replace(/[0-9]+/g, number => {
         i++;
 
-        if (i == 1 && versionUpdateType == 'major') {
+        if (
+            (i == 1 && versionUpdateType == 'major') ||
+            (i == 2 && versionUpdateType == 'minor') ||
+            (i == 3 && versionUpdateType == 'patch')
+        ) {
             return parseInt(number) + 1;
         }
 
-        if (i == 1 && versionUpdateType == 'minor') {
+        if (
+            (i == 1 && versionUpdateType.match(/^minor|patch$/)) ||
+            (i == 2 && versionUpdateType == 'patch')
+        ) {
             return number;
-        }
-
-        if (i == 2 && versionUpdateType == 'minor') {
-            return parseInt(number) + 1;
         }
 
         return 0;
     });
 }
 
-function createMergePush(newVersionNumber, versionUpdateType = 'minor') {
+function createMergePush(newVersionNumber, versionUpdateType = 'patch') {
     console.log('script ' + chalk.black.bgWhite('INFO') + ` Creating & Versioning branch 'release/v${newVersionNumber}'...`);
 
     exec(`git checkout -b release/v${newVersionNumber} develop`, (err, stdout, stderr) => {
