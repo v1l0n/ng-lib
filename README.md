@@ -1,3 +1,4 @@
+![GitHub package.json version](https://img.shields.io/github/package-json/v/v1l0n/ng-lib)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/v1l0n/ng-lib/@angular/core.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/v1l0n/ng-lib.svg)
 ![CircleCI](https://img.shields.io/circleci/build/github/v1l0n/ng-lib)
