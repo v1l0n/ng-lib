@@ -1,0 +1,3 @@
+<mat-list>
+    <a mat-line *ngFor="let result of results$ | async" [href]="result.link">{{result.title}}</a>
+</mat-list>
